@@ -1,0 +1,37 @@
+body {
+    background-color: lightyellow;
+}
+
+#intro {
+    text-align: center;
+    margin-top: 40px;
+    background-color: lightskyblue;
+    padding: 10px;
+}
+
+#startbtn {
+    color: white;
+    background-color: limegreen;
+    padding: 10px;
+    border-radius: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+#Question-Section {
+    text-align: center;
+}
+
+#Answer-Section {
+    text-align: center;
+    padding: 30px;
+    background-color: gold;
+}
+
+#Answer-Section button {
+    display: inline-block;
+    justify-content: center;
+    height: 40px;
+    width: 200px;
+    background-color: lightblue;
+}
