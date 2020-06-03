@@ -30,19 +30,26 @@
     
     <main>
         <div id="intro">
-            <h4>You have Two Minutes to Answer all Question in this Quiz, Press <button id="startbtn">Start!</button> start to Begin!</h4>
+            <h4>You have Two Minutes to Answer all Question in this Quiz, Press start to Begin!</h4>
         </div>
         <br><br>
-        <div id="Question-Section">
-            <h2>What is Your Start Sign</h2>
+        <div id="Question-Section" class="hide">
+            <div id="question">What is Your Start Sign</div>
+            <br>
+            <div id="Answer-Section">
+                <button class="button correct">1. Pieces</button>
+                <button class="button wrong">2. Virgo</button>
+                <button class="button">3. Tarous</button>
+                <button class="button">4. Leo</button>
+            </div>
         </div>
-        <br>
-        <div id="Answer-Section">
-            <button>1. Pieces</button>
-            <button>2. Virgo</button>
-            <button>3. Tarous</button>
-            <button>4. Leo</button>
+
+        <div id="Controls" class="hide">
+            <button id="startbtn">Start</button>
+            <button id="nextbtn">Next</button>
+            <button id="finishbtn">Finish Early</button>
         </div>
+
     </main>
 
     

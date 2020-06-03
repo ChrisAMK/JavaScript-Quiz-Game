@@ -1,3 +1,8 @@
+*::before, *::after {
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 body {
     background-color: lightyellow;
 }
@@ -8,8 +13,27 @@ body {
     background-color: lightskyblue;
     padding: 10px;
 }
+#question {
+    font-size: xx-large;
+}
 
 #startbtn {
+    color: white;
+    background-color: blue;
+    padding: 10px;
+    border-radius: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+#nextbtn {
+    color: white;
+    background-color: indigo;
+    padding: 10px;
+    border-radius: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+#finishbtn {
     color: white;
     background-color: limegreen;
     padding: 10px;
@@ -31,7 +55,42 @@ body {
 #Answer-Section button {
     display: inline-block;
     justify-content: center;
+}
+
+.button {
     height: 40px;
     width: 200px;
     background-color: lightblue;
+}
+
+.button.correct {
+    background-color: green;
+}
+
+.button.wrong {
+    background-color: red;
+}
+
+.button:hover {
+    background-color: rgb(99, 99, 255);
+}
+
+#Controls {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#Controls button {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.hide {
+    display: none;
 }
