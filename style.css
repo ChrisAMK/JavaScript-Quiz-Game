@@ -7,6 +7,14 @@ body {
     background-color: lightyellow;
 }
 
+body.correct {
+    background-color: green;
+}
+
+body.wrong {
+    background-color: red;
+}
+
 #intro {
     text-align: center;
     margin-top: 40px;
@@ -71,7 +79,7 @@ body {
     background-color: red;
 }
 
-.button:hover {
+.button2:hover {
     background-color: rgb(99, 99, 255);
 }
 
@@ -88,7 +96,7 @@ body {
     align-items: center;
     
     width: 100vw;
-    margin-left: ;
+    
 }
 
 .hide {
