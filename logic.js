@@ -1,5 +1,8 @@
 //Variables to Shorten text
 var startButton = document.getElementById('startbtn')
+var nextButton = document.getElementById('nextbtn')
+var finishButton = document.getElementById('finishbtn')
+var introSection = document.getElementById('intro')
 var questionSection = document.getElementById('Question-Section')
 var questionElement = document.getElementById('question')
 var answersButtons = document.getElementById('Answer-Section')
@@ -16,6 +19,12 @@ function startQuiz() {
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     questionSection.classList.remove('hide')
+    nextButton.classList.remove('hide')
+    finishButton.classList.remove('hide')
+    introSection.classList.add('hide')
+
+
+
     setNextQuestion()
 }
 

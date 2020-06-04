@@ -75,20 +75,20 @@ body {
     background-color: rgb(99, 99, 255);
 }
 
-#Controls {
-    width: 100vw;
-    display: flex;
+.Controls {
+    width: 500px;
+    display: block;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    
 }
 
-#Controls button {
-    width: 100vw;
-    display: flex;
+.Controls button {
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    
+    width: 100vw;
+    margin-left: ;
 }
 
 .hide {

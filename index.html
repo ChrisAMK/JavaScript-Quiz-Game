@@ -12,10 +12,9 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <header class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html"><h1>Javascript Quiz Game</h1></a>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <h6>Time Remaining:  </h6>
@@ -24,9 +23,8 @@
                         <h6>120</h6>
                     </li>
                 </ul>
-            </div>
         </div>
-    </nav>
+    </header>
     
     <main>
         <div id="intro">
@@ -44,10 +42,10 @@
             </div>
         </div>
 
-        <div id="Controls" class="hide">
+        <div class="Controls">
             <button id="startbtn">Start</button>
-            <button id="nextbtn">Next</button>
-            <button id="finishbtn">Finish Early</button>
+            <button id="nextbtn" class="hide">Next</button>
+            <button id="finishbtn" class="hide">Finish Early</button>
         </div>
 
     </main>
