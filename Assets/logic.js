@@ -50,7 +50,7 @@ function renderUsers() {
 
 
         var button = document.createElement("button");
-        button.textContent = (localStorage.getItem(users) + " : Click to Clear");
+        button.textContent = (localStorage.getItem(users) + " :   Clear");
         button.setAttribute("data-index", i);
         
       

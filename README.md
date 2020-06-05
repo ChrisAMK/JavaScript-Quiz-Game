@@ -1,42 +1,11 @@
 # 04 Web APIs: Code Quiz
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+For this Project we were to build a Javascript quiz game to check compare our knowledge against others in the class, it was to be displayed on a HTML Page, styled with CSS and given functionality through JavaScript. For my quiz i wanted to have a quiz where the user could select the button and then click to the next question, upon reading the read me just then i realized it was a fatal error. It still works but it isn't what is asked for, the thing i most liked about my quiz are the shuffled questions so every time the quiz starts it is in a random order. im happy with out the quiz works apart from saving the highscores to the Local Storage, i couldn't get multiple key values to stay. i know i got it to work in class but i couldn't figure out where i went wrong here. i think i made this quiz a bit more complicated than it should of been, but i had fun learning a whole bunch of things in the process. I don't know why i didn't read the Acceptance Criteria, won't make that mistake again.
 
-## User Story
 
-```
-AS A coding bootcamp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+![screenshot](./Assets/screen1.jpg)
 
-## Acceptance Criteria
+![screenshot](./Assets/screen2.jpg)
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-```
+![screenshot](./Assets/screen3.jpg)
 
-The following animation demonstrates the application functionality:
-
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
-
-### Review
-
-You are required to submit the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
