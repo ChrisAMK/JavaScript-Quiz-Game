@@ -41,7 +41,7 @@ body.wrong {
     padding-top: 2px;
     padding-bottom: 2px;
 }
-#finishbtn {
+#finishEarlyBtn {
     color: white;
     background-color: limegreen;
     padding: 10px;
@@ -81,6 +81,18 @@ body.wrong {
 
 .button2:hover {
     background-color: rgb(99, 99, 255);
+}
+
+#Score-Container {
+    margin-left: 33%;
+    margin-right: 33%;
+    background-color: gold;
+}
+
+#Score {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
 }
 
 .Controls {
