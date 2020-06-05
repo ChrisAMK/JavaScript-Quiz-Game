@@ -286,34 +286,110 @@ function selectAnswer(userPick) {
 // This is my Questions array! all questions are treated as objects, with their answers but only the correct one(s) will have the true value!
 var questions = [
     {
-        question: 'What is 2 + 2',
+        question: 'What is JavaScripts AND?',
         answers: [
-            {text: '4', correct: true},
-            {text: '22', correct: false}
+            {text: '%%', correct: false},
+            {text: '$$', correct: false},
+            {text: '||', correct: false},
+            {text: '&&', correct: true}
         ]
         
     },
     {
-        question: 'What is 4 + 4',
+        question: 'What does ++ do?',
         answers: [
-            {text: '2', correct: false},
-            {text: '8', correct: true}
+            {text: 'Increase Value', correct: true},
+            {text: 'Nothing', correct: false},
+            {text: 'Decrease Value', correct: false},
+            {text: 'Add Stings', correct: false}
         ]
         
     },
     {
-        question: 'What is 2 + 2',
+        question: 'What is JavaScripts OR?',
         answers: [
-            {text: '4', correct: true},
-            {text: '22', correct: false}
+            {text: '||', correct: true},
+            {text: '$$', correct: false},
+            {text: '%%', correct: false},
+            {text: '{{', correct: false}
         ]
         
     },
     {
-        question: 'What is 4 + 2',
+        question: 'When was JavaScript Created?',
         answers: [
-            {text: '4', correct: false},
-            {text: '6', correct: true}
+            {text: '2000', correct: false},
+            {text: '2005', correct: false},
+            {text: '2001', correct: false},
+            {text: '1995', correct: true}
+        ]
+        
+    },
+    {
+        question: 'What is JavaScripts NOT?',
+        answers: [
+            {text: '!', correct: true},
+            {text: '!!', correct: false},
+            {text: '&&', correct: false},
+            {text: '&', correct: false}
+        ]
+        
+    },
+    {
+        question: 'Which Company Created JavaScript?',
+        answers: [
+            {text: 'Google', correct: false},
+            {text: 'Netscape', correct: true},
+            {text: 'IBM', correct: false},
+            {text: 'MySpace', correct: false}
+        ]
+        
+    },
+    {
+        question: 'Are the Math functions exclusive to JavaScript?',
+        answers: [
+            {text: 'No', correct: true},
+            {text: 'Yes', correct: false},
+        ]
+        
+    },
+    {
+        question: 'How do you generate a random Number in JavaScript?',
+        answers: [
+            {text: 'Math.random', correct: false},
+            {text: 'math.random()', correct: false},
+            {text: 'math.random', correct: false},
+            {text: 'Math.random()', correct: true}
+        ]
+        
+    },
+    {
+        question: 'What is console.log used for?',
+        answers: [
+            {text: 'Debugging', correct: true},
+            {text: 'Creating Variables', correct: false},
+            {text: 'Rendering', correct: false},
+            {text: 'Encryption', correct: false}
+        ]
+        
+    },
+    {
+        question: 'What does preventDefault() do?',
+        answers: [
+            {text: 'Stops the page refeshing', correct: true},
+            {text: 'Loads Page Contents', correct: false},
+            {text: 'Rounds Down a Number', correct: false},
+            {text: 'Prevents strings changing', correct: false}
+        ]
+        
+    },
+    {
+        question: 'Which is a popular Javascript Library?',
+        answers: [
+            {text: 'Python', correct: false},
+            {text: 'C++', correct: false},
+            {text: 'JQuery', correct: true},
+            {text: 'BookTheif', correct: false}
         ]
         
     }
