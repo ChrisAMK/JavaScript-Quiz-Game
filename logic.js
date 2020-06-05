@@ -9,9 +9,11 @@ var answerButtons = document.getElementById('Answer-Section')
 var scoreboard = document.getElementById('Score-Container')
 var seeScoreBtn = document.getElementById('seeScore')
 var restartBtn = document.getElementById('restart')
+var finishbtn = document.getElementById('finishbtn')
+var userAnswer = ""
 
 var shuffledQuestions, currentQuestionIndex
-var score = 0
+var score = -1
 
 
 // User Starts the game by clicking the Start Button that executes the "Start Quiz Function"
@@ -48,7 +50,7 @@ function restart() {
         finishEarlyButton.classList.remove('hide')
         introSection.classList.add('hide')
         scoreboard.classList.add('hide')
-        score = 0
+        score = -1
         
         setNextQuestion()
         
@@ -71,18 +73,25 @@ function resetQuestions() {
     }
 }
 
+// this function detects if the element pressed is correct. if it is, it applies correct class, if wrong it applies the "wrong" class
 function setStatusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
-        score += 1
+        userAnswer = true
+        //score += 1
         element.classList.add('correct')
-        console.log("is this working?")
+        //console.log(userAnswer)
+
     } else {
         element.classList.add('wrong')
-        score -= 1
-        console.log("is this wrong?")
+        userAnswer = false
+        ///score -= 1
+        //console.log(userAnswer)
+        
     }
+    
 }
+
 
 function clearStatusClass(element) {
     element.classList.remove('correct')
@@ -103,8 +112,11 @@ function setNextQuestion() {
     
     resetQuestions()
     showQuestion(shuffledQuestions[currentQuestionIndex])
-    console.log(score)
     
+    if (userAnswer = true) {
+        score += 1
+    }
+    console.log(score)
 }
 
 function showQuestion(question) {
@@ -125,10 +137,10 @@ function showQuestion(question) {
 function selectAnswer(userPick) {
     var selectedButton = userPick.target
     var correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
     Array.from(answerButtons.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
-    })
+        })
+    setStatusClass(document.body, correct)
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove('hide')
     } else {
@@ -137,6 +149,9 @@ function selectAnswer(userPick) {
         startButton.classList.remove('hide')
         seeScoreBtn.classList.remove('hide')
         questionSection.classList.add('hide')
+        finishEarlyButton.classList.add('hide')
+        finishbtn.classList.remove('hide')
+
         
 
     }
