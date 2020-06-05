@@ -20,7 +20,7 @@
                         <h6>Time Remaining:  </h6>
                     </li>
                     <li class="nav-item">
-                        <h6>120</h6>
+                        <h6 id="counter">1 Minute</h6>
                     </li>
                 </ul>
         </div>
@@ -44,13 +44,16 @@
         </div>
 
         <div id="Score-Container" class="hide">
-            <h6>This is your Score: </h6>
+            <h6 class="Score-description">This is your Score: </h6>
             <p id="Score">12</p>
         </div>
 
-        <div id="leaderboard-container" class="">
+        <div id="time-out" class="hide">
+            <h4 class="time-out-message">Oops you ran out of time! <br> Click Restart to try again</h4>
+        </div>
+
+        <div id="leaderboard-container" class="hide">
             <form id="leaderboard" method="POST">
-                <label for="todo-text">Enter Your Name:</label>
                 <input type="text" placeholder="What is your Name?" name="scoreboard-text" id="scoreboard-input" />
             </form>
             <ul id="leaderboardUsers"></ul>
@@ -61,13 +64,8 @@
             <button id="seeScore" class="hide">See Score</button>
             <button id="finishbtn" class="hide">Click to Finish</button>
             <button id="nextbtn" class="hide">Next</button>
-            <button id="restart">Restart</button>
+            <button id="restart" class="hide">Restart</button>
         </div>
-
-        
-
-        <div></div>
-
     </div>
 
     

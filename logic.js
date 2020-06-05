@@ -11,14 +11,19 @@ var userScore = document.getElementById('Score')
 var seeScoreBtn = document.getElementById('seeScore')
 var restartBtn = document.getElementById('restart')
 var finishbtn = document.getElementById('finishbtn')
+var timeout = document.getElementById('time-out')
 var userAnswer = ""
 
 var shuffledQuestions, currentQuestionIndex
 var score = 0
+var outOfTime = false
+var completed = false
 
 var userName = document.getElementById('scoreboard-input')
 var leaderboard = document.getElementById('leaderboard')
 var leaderboardUsers = document.getElementById('leaderboardUsers')
+var leaderboardContainer = document.getElementById('leaderboard-container')
+
 var users = [];
 
 init();
@@ -41,45 +46,97 @@ function renderUsers() {
         var li = document.createElement("li");
         li.textContent = user;
         li.setAttribute("data-index", i);
+        li.setAttribute("class", "Scorelist");
+
 
         var button = document.createElement("button");
-        button.textContent = "Complete";
-
+        button.textContent = (localStorage.getItem(users) + " : Click to Clear");
+        button.setAttribute("data-index", i);
+        
+      
         li.appendChild(button);
         leaderboardUsers.appendChild(li);
     }
 }
-
+//localStorage.getItem(users)
 function storeUsers() {
-    localStorage.setItem("users", JSON.stringify(users));
+    //localStorage.setItem("users", JSON.stringify(users));
+    //localStorage.setItem(JSON.stringify(users), JSON.stringify(score));
+    localStorage.setItem(users, score);
 }
 
+// This listens for the form to be submitted then it executes the code
 leaderboard.addEventListener("submit", function() {
     event.preventDefault();
 
     var userText = userName.value.trim();
+    var userCorrectAnswers = score.value;
 
     if (userText === "") {
         return
     }
 
+//users.push(userCorrectAnswers);
     users.push(userText);
     userName.value = "";
-
+// Users name is store into local Storage
     storeUsers()
     renderUsers()
+    
+})
+// This is the clear function
+leaderboardUsers.addEventListener("click", function(event) {
+    var element = event.target;
+    // If the element that is targeted is a button, the cute begins to clear it and then Re-Render the Users.
+    if (element.matches("button") === true) {
+        var index = element.parentElement.getAttribute("data-index");
+        users.splice(index, 1);
+
+        storeUsers();
+        renderUsers();
+    }
 })
 
+// This code is the Timer, i actually grabbed this off someones blog, but alterations have been made!
+function countdown(minutes) {
+    var seconds = 60;
+    var mins = minutes
+    function tick() {
+        //This Code is outputting to the counter Element in at the top of the screen
+        var counter = document.getElementById("counter");
+        var current_minutes = mins-1
+        seconds--;
+        counter.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+        // This stops the counter if all questions are completed!
+        if(completed === true) {
+            return
+        }
+        if( seconds > 0 ) {
+            setTimeout(tick, 1000);
+        } else {
+            if(mins > 1){
+                countdown(mins-1);           
+            }
+            if(mins == 0) {
+                outOfTime = true
+            }
+        
+            RanOutofTime()
+        } 
+    }
+    tick();
+}
 
 
-
-
-
-
-
-
-
-
+// If the counter reaches 0, this function will be called. it hide pretty much everything and displays the message that you ran out of time.
+function RanOutofTime() {
+    timeout.classList.remove('hide')
+    answerButtons.classList.add('hide')
+    nextButton.classList.add('hide')
+    questionSection.classList.add("hide")
+    leaderboardContainer.classList.add('hide')
+    scoreboard.classList.add('hide')
+}
 
 // User Starts the game by clicking the Start Button that executes the "Start Quiz Function"
 startButton.addEventListener('click', startQuiz)
@@ -96,9 +153,12 @@ function startQuiz() {
     startButton.classList.add('hide')
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
+    score = 0
     questionSection.classList.remove('hide')
     nextButton.classList.remove('hide')
+    restartBtn.classList.remove('hide')
     introSection.classList.add('hide')
+    countdown(1);
     setNextQuestion()
 }
 
@@ -106,19 +166,20 @@ function startQuiz() {
 // and Classes like "hide" for the scoring, it is super important to reset the score and UserAnswer.
 function restart() {
     restartBtn.addEventListener("click", function() {
-        
-        // Alerts the Console that a new Quiz has started, for easier Development
-        console.log('Started')
+
+        completed = false
         startButton.classList.add('hide')
         shuffledQuestions = questions.sort(() => Math.random() - .5)
         currentQuestionIndex = 0
+        answerButtons.classList.remove('hide')
         questionSection.classList.remove('hide')
         nextButton.classList.remove('hide')
         introSection.classList.add('hide')
         scoreboard.classList.add('hide')
+        timeout.classList.add('hide')
+        leaderboardContainer.classList.add('hide')
         score = 0
-        userAnswer = NaN
-        
+        countdown(1);
         setNextQuestion()
         
     })
@@ -129,10 +190,10 @@ restart()
 
 // This Function gets the next set of Questions ready.
 function resetQuestions() {
-    // TO BE REMOVED
+    
     clearStatusClass(document.body)
     nextButton.classList.add('hide')
-    // Removes all childenren before setting new.
+    // Removes all children before setting new.
     while (answerButtons.firstChild) {
         answerButtons.removeChild
         (answerButtons.firstChild)
@@ -140,15 +201,15 @@ function resetQuestions() {
 }
 
 // this function detects if the element pressed is correct. if it is, it applies correct class, if wrong it applies the "wrong" class
-// TO BE REMOVED FOR DEV PURPOSES
-function setStatusClass(element, correct) {
+// 
+function correctAnswerDetection(element, correct) {
     clearStatusClass(element)
     if (correct) {
         userAnswer = true
-        element.classList.add('correct')
+        //element.classList.add('correct')
 
     } else {
-        element.classList.add('wrong')
+        //element.classList.add('wrong')
         userAnswer = false
     }
 }
@@ -170,10 +231,12 @@ function scoreQuestion () {
     scoreboard.classList.remove('hide')
     questionSection.classList.add('hide')
     seeScoreBtn.classList.add('hide')
+    leaderboardContainer.classList.remove('hide')
     if (userAnswer == true) {
         score += 1
     }
     userScore.innerText = score;
+    completed = true
 }
 
 // setNextQuestion Calls the resetQuestions function then the showQuestion function but with a bit of Maths to shuffle the order
@@ -209,9 +272,9 @@ function selectAnswer(userPick) {
     var selectedButton = userPick.target
     var correct = selectedButton.dataset.correct
     Array.from(answerButtons.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct)
+        correctAnswerDetection(button, button.dataset.correct)
         })
-    setStatusClass(document.body, correct)
+        correctAnswerDetection(document.body, correct)
     // This If statement is how the Program knows where to finish, this code checks if the questions are running out, if so the code
     // is Executed
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
@@ -219,8 +282,6 @@ function selectAnswer(userPick) {
     } else {
         seeScoreBtn.classList.remove('hide')
     }
-    
-    
 }
 // This is my Questions array! all questions are treated as objects, with their answers but only the correct one(s) will have the true value!
 var questions = [
