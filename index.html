@@ -14,7 +14,7 @@
 <body>
     <header class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><h1>Javascript Quiz Game</h1></a>
+            <h1>Javascript Quiz Game</h1>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <h6>Time Remaining:  </h6>
@@ -43,19 +43,28 @@
             </div>
         </div>
 
-        <div class="Controls">
-            <button id="startbtn">Start</button>
-            <button id="finishbtn" class="hide">Click to Finish</button>
-            <button id="nextbtn" class="hide">Next</button>
-            <button id="finishEarlyBtn" class="hide">Finish Early</button>
-            <button id="seeScore" class="hide">See Score</button>
-            <button id="restart" class="">Restart</button>
-        </div>
-
         <div id="Score-Container" class="hide">
-            This is Where the Score Will be
+            <h6>This is your Score: </h6>
             <p id="Score">12</p>
         </div>
+
+        <div id="leaderboard-container" class="">
+            <form id="leaderboard" method="POST">
+                <label for="todo-text">Enter Your Name:</label>
+                <input type="text" placeholder="What is your Name?" name="scoreboard-text" id="scoreboard-input" />
+            </form>
+            <ul id="leaderboardUsers"></ul>
+        </div>
+
+        <div class="Controls">
+            <button id="startbtn">Start</button>
+            <button id="seeScore" class="hide">See Score</button>
+            <button id="finishbtn" class="hide">Click to Finish</button>
+            <button id="nextbtn" class="hide">Next</button>
+            <button id="restart">Restart</button>
+        </div>
+
+        
 
         <div></div>
 
